@@ -1,0 +1,31 @@
+@import './variables';
+
+@mixin font-type($font) {
+  @each $attr, $value in $font {
+    #{$attr}: $value;
+  }
+}
+
+@mixin separator-bottom() {
+  border-bottom: 1px solid getBgColor(300);
+}
+
+@mixin separator-top() {
+  border-top: 1px solid getBgColor(300);
+}
+
+@mixin box-shadow() {
+  box-shadow: -2px 4px 16px rgb(34 55 71 / 15%);
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@function getSpacing($value) {
+  @if map-has-key($spacing, $value) {
+    @return map-get($spacing, $value);
+  } @else {
+    @error 'This value does not exist in spacings';
+  }
+}
