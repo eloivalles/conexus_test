@@ -10,7 +10,7 @@ const routes: Route[] = [
     component: PatientsListComponent,
   },
   {
-    path: 'patient-notes/:id',
+    path: 'patient-notes/:patientId',
     component: PatientNotesComponent,
   },
   { path: '', redirectTo: defaultRoute, pathMatch: 'full' },

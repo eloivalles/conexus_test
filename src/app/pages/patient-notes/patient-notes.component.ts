@@ -1,8 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Notes } from '@core/models/user.model';
+import { PatientService } from '@core/services/patient.service';
 
 @Component({
   selector: 'app-patient-notes',
   templateUrl: './patient-notes.component.html',
   styleUrls: ['./patient-notes.component.scss'],
 })
-export class PatientNotesComponent {}
+export class PatientNotesComponent implements OnInit {
+  public notes: Notes[] | null = null;
+  public state: 'loading' | 'loaded' | 'error' = 'loading';
+  private readonly patientId: string;
+
+  public constructor(
+    private readonly patientService: PatientService,
+    private readonly actRoute: ActivatedRoute,
+  ) {
+    this.patientId = this.actRoute.snapshot.paramMap.get('patientId') ?? '';
+    if (this.patientId === '') {
+      throw new Error('can not get patient id');
+    }
+  }
+
+  public async ngOnInit(): Promise<void> {
+    this.state = 'loading';
+    this.notes = await this.patientService.getPatientNotes(this.patientId);
+    this.state = this.notes ? 'loaded' : 'error';
+  }
+}

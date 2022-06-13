@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { UserInfo } from '../models/user.model';
+import { mockNotesByPatient } from '@mocks/notes.mock';
+import { BehaviorSubject, delay, firstValueFrom } from 'rxjs';
+import { Notes, UserInfo } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +15,13 @@ export class PatientService {
         name: 'test patient',
       },
     ];
+  }
+
+  public async getPatientNotes(patientId: string): Promise<Notes[] | null> {
+    const patientData = mockNotesByPatient.find((list) => list.patientId === patientId);
+    const stream = new BehaviorSubject<Notes[] | null>(patientData ? patientData.notes : null).pipe(
+      delay(2000),
+    );
+    return firstValueFrom(stream);
   }
 }

@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PatientService } from './core/services/patient.service';
 
 export const MATERIAL_MODULES = [
@@ -18,7 +19,7 @@ export const MATERIAL_MODULES = [
   // MatFormFieldModule,
   // MatSelectModule,
   MatIconModule,
-  // MatProgressSpinnerModule,
+  MatProgressSpinnerModule,
   // MatMenuModule,
   MatTableModule,
   MatButtonModule,
