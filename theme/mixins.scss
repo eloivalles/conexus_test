@@ -22,10 +22,3 @@
   border-radius: $radius;
 }
 
-@function getSpacing($value) {
-  @if map-has-key($spacing, $value) {
-    @return map-get($spacing, $value);
-  } @else {
-    @error 'This value does not exist in spacings';
-  }
-}

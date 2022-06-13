@@ -1,15 +1,40 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from "./app.component";
-import { UsersListComponent } from "./pages/users-list/users-list.component";
-import { UserNotesComponent } from "./pages/user-notes/user-notes.component";
-import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from './app.component';
+import { PatientsListComponent } from './pages/patients-list/patients-list.component';
+import { PatientNotesComponent } from './pages/patient-notes/patient-notes.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+
+export const MATERIAL_MODULES = [
+  // MatInputModule,
+  // MatFormFieldModule,
+  // MatSelectModule,
+  MatIconModule,
+  // MatProgressSpinnerModule,
+  // MatMenuModule,
+  MatTableModule,
+  MatButtonModule,
+  // MatDividerModule,
+  // MatDatepickerModule,
+  // MatMomentDateModule,
+  MatCardModule,
+  // MatDialogModule,
+  // MatSortModule,
+  // MatBadgeModule,
+  // MatButtonToggleModule,
+  // MatExpansionModule,
+];
 
 @NgModule({
-  declarations: [AppComponent, UsersListComponent, UserNotesComponent],
-  imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule],
+  declarations: [AppComponent, PatientsListComponent, PatientNotesComponent],
+  imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule, ...MATERIAL_MODULES],
   providers: [],
   bootstrap: [AppComponent],
 })

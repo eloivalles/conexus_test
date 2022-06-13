@@ -1,23 +1,24 @@
-import { NgModule } from "@angular/core";
-import { Route, RouterModule } from "@angular/router";
-import { UserNotesComponent } from "./pages/user-notes/user-notes.component";
-import { UsersListComponent } from "./pages/users-list/users-list.component";
+import { NgModule } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
+import { PatientNotesComponent } from './pages/patient-notes/patient-notes.component';
+import { PatientsListComponent } from './pages/patients-list/patients-list.component';
 
+const defaultRoute = 'patients-list';
 const routes: Route[] = [
   {
-    path: "users-list",
-    component: UsersListComponent,
+    path: defaultRoute,
+    component: PatientsListComponent,
   },
   {
-    path: "user-notes/:userId",
-    component: UserNotesComponent,
+    path: 'patient-notes/:id',
+    component: PatientNotesComponent,
   },
-  { path: "", redirectTo: "users-list", pathMatch: "full" },
-  { path: "**", redirectTo: "users-list", pathMatch: "full" },
+  { path: '', redirectTo: defaultRoute, pathMatch: 'full' },
+  { path: '**', redirectTo: defaultRoute, pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

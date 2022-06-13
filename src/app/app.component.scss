@@ -1,0 +1,14 @@
+
+:host {
+    .layout {
+        
+        padding: var(--spacing-xl);
+        
+        &__main {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            background-color: var(--color-white);
+        }
+    }
+}
