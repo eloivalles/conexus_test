@@ -1,0 +1,7 @@
+ls:
+  src:
+    .dir: regex:(__)?[-a-z0-9.]+(__)?
+
+ignore:
+  - node_modules
+  - src/assets

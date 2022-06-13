@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { PatientService } from '@core/services/patient.service';
 import { UserInfo } from 'src/app/core/models/user.model';
-import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-patients-list',
@@ -13,7 +13,10 @@ export class PatientsListComponent implements OnInit {
   public readonly patients: MatTableDataSource<UserInfo>;
   public displayedColumns: string[] = ['name', 'action'];
 
-  public constructor(private readonly userService: UserService, private readonly router: Router) {
+  public constructor(
+    private readonly userService: PatientService,
+    private readonly router: Router,
+  ) {
     this.patients = new MatTableDataSource();
   }
 

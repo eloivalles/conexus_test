@@ -4,7 +4,7 @@ import { UserInfo } from '../models/user.model';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class PatientService {
   public fetchUserInfo(): UserInfo[] {
     // Simulates GET call to endpoint
     return [

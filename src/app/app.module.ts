@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { PatientService } from './core/services/patient.service';
 
 export const MATERIAL_MODULES = [
   // MatInputModule,
@@ -35,7 +36,7 @@ export const MATERIAL_MODULES = [
 @NgModule({
   declarations: [AppComponent, PatientsListComponent, PatientNotesComponent],
   imports: [AppRoutingModule, BrowserModule, BrowserAnimationsModule, ...MATERIAL_MODULES],
-  providers: [],
+  providers: [PatientService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
