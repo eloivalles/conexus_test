@@ -19,6 +19,7 @@ export class PatientService {
 
   public async getPatientNotes(patientId: string): Promise<Notes[] | null> {
     const patientData = mockNotesByPatient.find((list) => list.patientId === patientId);
+    // Simulates GET call to endpoint. Done with observable to add a delay so user can see loader
     const stream = new BehaviorSubject<Notes[] | null>(patientData ? patientData.notes : null).pipe(
       delay(1600),
     );
