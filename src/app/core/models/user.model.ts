@@ -1,4 +1,4 @@
-export interface UserInfo {
+export interface PatientInfo {
   readonly id: string;
   readonly name: string;
 }

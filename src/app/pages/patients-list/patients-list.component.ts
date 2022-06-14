@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PatientService } from '@core/services/patient.service';
-import { UserInfo } from 'src/app/core/models/user.model';
+import { PatientInfo } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-patients-list',
@@ -10,7 +10,7 @@ import { UserInfo } from 'src/app/core/models/user.model';
   styleUrls: ['./patients-list.component.scss'],
 })
 export class PatientsListComponent implements OnInit {
-  public readonly patients: MatTableDataSource<UserInfo>;
+  public readonly patients: MatTableDataSource<PatientInfo>;
   public displayedColumns: string[] = ['name', 'action'];
 
   public constructor(
@@ -21,7 +21,7 @@ export class PatientsListComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.patients.data = [...this.userService.fetchUserInfo()];
+    this.patients.data = [...this.userService.fetchPatientInfo()];
   }
 
   public async goToNotes(patientId: string): Promise<void> {

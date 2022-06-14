@@ -20,7 +20,7 @@ describe('PatientsListComponent', () => {
       providers: [
         {
           provide: PatientService,
-          useValue: { fetchUserInfo: () => [] },
+          useValue: { fetchPatientInfo: () => [] },
         },
         { provide: Router, useClass: MockRouter },
       ],
@@ -37,7 +37,7 @@ describe('PatientsListComponent', () => {
   test('should navigate to notes page', () => {
     const patientsService = TestBed.inject(PatientService);
     const router = TestBed.inject(Router);
-    patientsService.fetchUserInfo = jest.fn().mockReturnValue([
+    patientsService.fetchPatientInfo = jest.fn().mockReturnValue([
       {
         id: '111',
         name: 'test patient',
