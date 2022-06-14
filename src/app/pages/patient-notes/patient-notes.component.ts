@@ -26,6 +26,29 @@ export class PatientNotesComponent implements OnInit {
   public async ngOnInit(): Promise<void> {
     this.state = 'loading';
     this.notes = await this.patientService.getPatientNotes(this.patientId);
+    this.sortNotes();
     this.state = this.notes ? 'loaded' : 'error';
+  }
+
+  public toogleflag(noteId: string): void {
+    if (this.notes) {
+      const index = this.notes.findIndex((note) => note.id === noteId);
+      if (index === -1) {
+        throw new Error('unable to unflag note');
+      }
+      this.notes[index].isFlagged = !this.notes[index].isFlagged;
+      this.sortNotes();
+    }
+  }
+
+  private sortNotes(): void {
+    if (this.notes) {
+      const flagedNotes = this.notes.filter((note) => note.isFlagged);
+      const unflagedNotes = this.notes.filter((note) => !note.isFlagged);
+
+      flagedNotes.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+      unflagedNotes.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+      this.notes = [...flagedNotes, ...unflagedNotes];
+    }
   }
 }

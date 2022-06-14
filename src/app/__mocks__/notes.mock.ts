@@ -18,30 +18,35 @@ const date = moment('1/1/2022');
 
 const notesMock: Notes[] = [
   {
+    id: 'aaa',
     coachName: coachName,
     content: mockText1,
     createdAt: date.toDate(),
     isFlagged: false,
   },
   {
+    id: 'bbb',
     coachName: coachName,
     content: mockText2,
     createdAt: date.add(2, 'days').toDate(),
     isFlagged: true,
   },
   {
+    id: 'ccc',
     coachName: coachName,
     content: mockText3 + mockText4,
     createdAt: date.add(2, 'days').toDate(),
     isFlagged: false,
   },
   {
+    id: 'ddd',
     coachName: coachName,
     content: mockText4,
     createdAt: date.add(4, 'days').toDate(),
     isFlagged: false,
   },
   {
+    id: 'eee',
     coachName: coachName,
     content: mockText5,
     createdAt: date.add(3, 'days').toDate(),

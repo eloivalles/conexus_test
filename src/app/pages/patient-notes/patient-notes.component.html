@@ -9,7 +9,7 @@
             <span>{{note.createdAt | date: 'medium'}}</span>
         </p>
         <p>{{note.content}}</p>
-        <button mat-icon-button class="notes__flag" aria-label="button to flag a note" [disabled]="note.isFlagged">
+        <button mat-icon-button class="notes__flag" (click)="toogleflag(note.id)" aria-label="button to flag a note">
             <mat-icon>{{note.isFlagged ? 'flag' : 'outlined_flag'}}</mat-icon>
             {{note.isFlagged ? 'unflag' : 'flag'}} this note
         </button>

@@ -4,8 +4,9 @@ export interface UserInfo {
 }
 
 export interface Notes {
+  readonly id: string;
   readonly coachName: string;
   readonly content: string;
-  readonly isFlagged: boolean;
+  isFlagged: boolean;
   readonly createdAt: Date;
 }
