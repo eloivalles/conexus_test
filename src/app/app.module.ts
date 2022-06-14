@@ -15,23 +15,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PatientService } from './core/services/patient.service';
 
 export const MATERIAL_MODULES = [
-  // MatInputModule,
-  // MatFormFieldModule,
-  // MatSelectModule,
   MatIconModule,
   MatProgressSpinnerModule,
-  // MatMenuModule,
   MatTableModule,
   MatButtonModule,
-  // MatDividerModule,
-  // MatDatepickerModule,
-  // MatMomentDateModule,
   MatCardModule,
-  // MatDialogModule,
-  // MatSortModule,
-  // MatBadgeModule,
-  // MatButtonToggleModule,
-  // MatExpansionModule,
 ];
 
 @NgModule({

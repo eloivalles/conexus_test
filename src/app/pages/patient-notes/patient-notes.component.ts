@@ -46,8 +46,8 @@ export class PatientNotesComponent implements OnInit {
       const flagedNotes = this.notes.filter((note) => note.isFlagged);
       const unflagedNotes = this.notes.filter((note) => !note.isFlagged);
 
-      flagedNotes.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
-      unflagedNotes.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+      flagedNotes.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+      unflagedNotes.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
       this.notes = [...flagedNotes, ...unflagedNotes];
     }
   }

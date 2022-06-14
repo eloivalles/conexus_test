@@ -1,5 +1,4 @@
 import { Notes } from '@core/models/user.model';
-import moment from 'moment';
 
 const coachName = 'James';
 
@@ -14,42 +13,40 @@ const mockText4 =
 const mockText5 =
   'Cras pulvinar, ipsum id sagittis condimentum, orci quam eleifend enim, id fringilla eros lectus id quam.';
 
-const date = moment('1/1/2022');
-
 const notesMock: Notes[] = [
   {
     id: 'aaa',
     coachName: coachName,
     content: mockText1,
-    createdAt: date.toDate(),
+    createdAt: new Date('1/1/2022'),
     isFlagged: false,
   },
   {
     id: 'bbb',
     coachName: coachName,
     content: mockText2,
-    createdAt: date.add(2, 'days').toDate(),
+    createdAt: new Date('1/4/2022'),
     isFlagged: true,
   },
   {
     id: 'ccc',
     coachName: coachName,
     content: mockText3 + mockText4,
-    createdAt: date.add(2, 'days').toDate(),
+    createdAt: new Date('2/2/2022'),
     isFlagged: false,
   },
   {
     id: 'ddd',
     coachName: coachName,
     content: mockText4,
-    createdAt: date.add(4, 'days').toDate(),
+    createdAt: new Date('1/7/2022'),
     isFlagged: false,
   },
   {
     id: 'eee',
     coachName: coachName,
     content: mockText5,
-    createdAt: date.add(3, 'days').toDate(),
+    createdAt: new Date('1/12/2022'),
     isFlagged: true,
   },
 ];
